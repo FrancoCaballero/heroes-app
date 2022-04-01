@@ -1,4 +1,4 @@
-import { HeroList } from "../hero/HeroList";
+import { HeroList } from '../hero/HeroList'
 
 export const MarvelScreen = () => {
   return (
@@ -8,5 +8,5 @@ export const MarvelScreen = () => {
 
       <HeroList publisher="Marvel Comics" />
     </div>
-  );
-};
+  )
+}

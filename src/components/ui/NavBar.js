@@ -1,12 +1,16 @@
-import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import React, { useContext } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../auth/authContext'
+import { types } from '../../types/types'
 
 export const NavBar = () => {
-  const navigate = useNavigate();
+  const { user, dispatch } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const handleLogout = () => {
-    navigate("/login", { replace: true });
-  };
+    dispatch({ type: types.logout })
+    navigate('/login', { replace: true })
+  }
 
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -18,7 +22,7 @@ export const NavBar = () => {
         <div className="navbar-nav">
           <NavLink
             className={({ isActive }) =>
-              "nav-item nav-link " + (isActive ? "active" : "")
+              'nav-item nav-link ' + (isActive ? 'active' : '')
             }
             to="/marvel"
           >
@@ -27,7 +31,7 @@ export const NavBar = () => {
 
           <NavLink
             className={({ isActive }) =>
-              "nav-item nav-link " + (isActive ? "active" : "")
+              'nav-item nav-link ' + (isActive ? 'active' : '')
             }
             to="/dc"
           >
@@ -35,7 +39,7 @@ export const NavBar = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              "nav-item nav-link " + (isActive ? "active" : "")
+              'nav-item nav-link ' + (isActive ? 'active' : '')
             }
             to="/search"
           >
@@ -46,12 +50,12 @@ export const NavBar = () => {
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nac-item nav-link text-info">Franco</span>
+          <span className="nac-item nav-link text-info">{user.name}</span>
           <button className="nav-item nav-link btn" onClick={handleLogout}>
             Logout
           </button>
         </ul>
       </div>
     </nav>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 export const HeroCard = ({
   id,
@@ -6,9 +6,9 @@ export const HeroCard = ({
   publisher,
   alter_ego,
   first_appearance,
-  characters,
+  characters
 }) => {
-  const imagePath = `/assets/heroes/${id}.jpg`;
+  const imagePath = `/assets/heroes/${id}.jpg`
 
   return (
     <div className="col animate__animated animate__fadeIn">
@@ -29,13 +29,11 @@ export const HeroCard = ({
                 <small className="text-muted">{first_appearance}</small>
               </p>
 
-              <Link to={`/hero/${id}`} className="btn btn-primary">
-                Más...
-              </Link>
+              <Link to={`/hero/${id}`}>Más...</Link>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

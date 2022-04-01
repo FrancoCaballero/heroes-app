@@ -1,24 +1,24 @@
-import { useMemo } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import queryString from "query-string";
-import { useForm } from "../../hooks/useForm";
-import { getHeroesByName } from "../../selectors/getHeroesByName";
-import { HeroCard } from "../hero/HeroCard";
+import { useMemo } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import queryString from 'query-string'
+import { useForm } from '../../hooks/useForm'
+import { getHeroesByName } from '../../selectors/getHeroesByName'
+import { HeroCard } from '../hero/HeroCard'
 
 export const SearchScreen = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  const { q = "" } = queryString.parse(location.search);
+  const { q = '' } = queryString.parse(location.search)
 
-  const [{ searchText }, handleInputChange] = useForm({ searchText: q });
+  const [{ searchText }, handleInputChange] = useForm({ searchText: q })
 
-  const heroesFiltered = useMemo(() => getHeroesByName(q), [q]);
+  const heroesFiltered = useMemo(() => getHeroesByName(q), [q])
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    navigate(`?q=${searchText}`);
-  };
+    e.preventDefault()
+    navigate(`?q=${searchText}`)
+  }
 
   return (
     <>
@@ -51,13 +51,15 @@ export const SearchScreen = () => {
           <h4>Resultados</h4>
           <hr />
 
-          {q === "" ? (
+          {q === ''
+            ? (
             <div className="alert alert-info"> Search hero</div>
-          ) : (
-            heroesFiltered.length === 0 && (
+              )
+            : (
+                heroesFiltered.length === 0 && (
               <div className="alert alert-danger"> No hay resultados: {q}</div>
-            )
-          )}
+                )
+              )}
 
           {heroesFiltered.map((hero) => (
             <HeroCard key={hero.id} {...hero} />
@@ -65,5 +67,5 @@ export const SearchScreen = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}

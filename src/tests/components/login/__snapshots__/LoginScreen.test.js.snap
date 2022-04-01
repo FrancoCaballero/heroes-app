@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pruebas en LoginScreen debe mostrarse correctamente 1`] = `
+<div
+  className="container mt-5"
+>
+  <h1>
+    Login
+  </h1>
+  <hr />
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="col-6"
+    >
+      <input
+        autoComplete="off"
+        className="form-control"
+        name="username"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <button
+        className="btn btn-primary mt-3"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>
+`;

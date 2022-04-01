@@ -1,23 +1,23 @@
-import { useMemo } from "react";
-import { useParams, Navigate, useNavigate } from "react-router-dom";
-import { getHeroById } from "../../selectors/getHeroById";
+import { useMemo } from 'react'
+import { useParams, Navigate, useNavigate } from 'react-router-dom'
+import { getHeroById } from '../../selectors/getHeroById'
 
 export const HeroScreen = () => {
-  const { heroId } = useParams();
-  const navigate = useNavigate();
+  const { heroId } = useParams()
+  const navigate = useNavigate()
 
-  const hero = useMemo(() => getHeroById(heroId), [heroId]);
+  const hero = useMemo(() => getHeroById(heroId), [heroId])
 
   const handleReturn = () => {
-    navigate(-1);
-  };
+    navigate(-1)
+  }
 
-  if (!hero) return <Navigate to="/" />;
+  if (!hero) return <Navigate to="/" />
 
   const { id, superhero, publisher, alter_ego, first_appearance, characters } =
-    hero;
+    hero
 
-  const imagePath = `/assets/heroes/${id}.jpg`;
+  const imagePath = `/assets/heroes/${id}.jpg`
 
   return (
     <div className="row mt-5">
@@ -50,5 +50,5 @@ export const HeroScreen = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
